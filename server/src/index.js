@@ -46,6 +46,21 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '1mb' }))
 
+// Health check / root route
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    message: 'SafeWay Backend API',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      routes: '/api/routes',
+      safety: '/api/safety',
+      sos: '/api/sos'
+    }
+  });
+});
+
 // Basic request logging
 app.use((req, _res, next) => {
   logger.info(`${req.method} ${req.originalUrl}`)
