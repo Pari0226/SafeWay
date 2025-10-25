@@ -15,15 +15,9 @@ const Login = () => {
     setLoading(true)
     try {
       const result = await login(formData.email, formData.password)
-      if (result && result.data) {
-        // Extract data from the nested structure
-        const { token, user } = result.data
-        
-        // Save to localStorage
-        localStorage.setItem('token', token)
-        localStorage.setItem('user', JSON.stringify(user))
-        
-        // Use window.location for a full page refresh
+      if (result.success) {
+        // AuthContext has already saved the token and user
+        // Just redirect to dashboard
         window.location.href = '/'
       } else {
         setError(result?.message || 'Invalid login response')
