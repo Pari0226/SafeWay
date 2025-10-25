@@ -7,10 +7,9 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "build": "npx prisma generate",
+    "build": "npx prisma generate && npx prisma db push --accept-data-loss --skip-generate",
     "migrate": "npx prisma migrate deploy",
-    "seed": "node src/utils/seed.js",
-    "postinstall": "npm run build"
+    "postinstall": "npx prisma generate"
   },
   "keywords": [
     "safety",
