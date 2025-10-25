@@ -1,0 +1,23 @@
+{
+  "Delhi": { "crimeRate": 45.0, "womenSafety": 6.3, "nightSafety": 4.2, "size": "metro" },
+  "Mumbai": { "crimeRate": 38.7, "womenSafety": 7.1, "nightSafety": 5.8, "size": "metro" },
+  "Bengaluru": { "crimeRate": 32.4, "womenSafety": 7.8, "nightSafety": 6.5, "size": "metro" },
+  "Kolkata": { "crimeRate": 29.8, "womenSafety": 7.6, "nightSafety": 6.3, "size": "metro" },
+  "Chennai": { "crimeRate": 31.2, "womenSafety": 7.9, "nightSafety": 6.7, "size": "metro" },
+  "Hyderabad": { "crimeRate": 30.5, "womenSafety": 7.7, "nightSafety": 6.4, "size": "metro" },
+  "Pune": { "crimeRate": 27.9, "womenSafety": 7.4, "nightSafety": 6.2, "size": "tier2" },
+  "Ahmedabad": { "crimeRate": 26.5, "womenSafety": 7.3, "nightSafety": 6.1, "size": "tier2" },
+  "Jaipur": { "crimeRate": 28.7, "womenSafety": 7.0, "nightSafety": 5.7, "size": "tier2" },
+  "Lucknow": { "crimeRate": 33.1, "womenSafety": 6.6, "nightSafety": 5.2, "size": "tier2" },
+  "Kanpur": { "crimeRate": 31.5, "womenSafety": 6.4, "nightSafety": 5.0, "size": "tier2" },
+  "Nagpur": { "crimeRate": 25.8, "womenSafety": 7.2, "nightSafety": 6.0, "size": "tier2" },
+  "Indore": { "crimeRate": 24.1, "womenSafety": 7.0, "nightSafety": 5.8, "size": "tier2" },
+  "Surat": { "crimeRate": 22.7, "womenSafety": 7.6, "nightSafety": 6.3, "size": "tier2" },
+  "Bhopal": { "crimeRate": 27.3, "womenSafety": 6.8, "nightSafety": 5.6, "size": "tier2" },
+  "Patna": { "crimeRate": 34.9, "womenSafety": 6.0, "nightSafety": 4.8, "size": "tier2" },
+  "Chandigarh": { "crimeRate": 21.4, "womenSafety": 8.0, "nightSafety": 6.8, "size": "tier2" },
+  "Coimbatore": { "crimeRate": 20.3, "womenSafety": 8.2, "nightSafety": 7.0, "size": "small" },
+  "Kochi": { "crimeRate": 19.8, "womenSafety": 8.4, "nightSafety": 7.2, "size": "small" },
+  "Thiruvananthapuram": { "crimeRate": 18.6, "womenSafety": 8.1, "nightSafety": 7.1, "size": "small" },
+  "Gwalior": { "crimeRate": 29.5, "womenSafety": 6.7, "nightSafety": 5.4, "size": "tier2" }
+}

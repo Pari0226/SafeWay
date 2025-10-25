@@ -1,0 +1,111 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  password      String
+  name          String
+  phone         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  emergencyContacts EmergencyContact[]
+  safetyReports     SafetyReport[]
+  savedRoutes       SavedRoute[]
+  sosAlerts         SOSAlert[]
+  
+  @@index([email])
+}
+
+model EmergencyContact {
+  id        String   @id @default(uuid())
+  userId    String
+  name      String
+  phone     String
+  relation  String?
+  createdAt DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+}
+
+model SafetyReport {
+  id           String   @id @default(uuid())
+  userId       String?
+  latitude     Float
+  longitude    Float
+  incidentType String
+  severity     Int
+  description  String?
+  isAnonymous  Boolean  @default(false)
+  isVerified   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  @@index([latitude, longitude])
+  @@index([createdAt])
+  @@index([incidentType])
+}
+
+model SavedRoute {
+  id          String   @id @default(uuid())
+  userId      String
+  name        String?
+  sourceName  String
+  sourceLat   Float
+  sourceLon   Float
+  destName    String
+  destLat     Float
+  destLon     Float
+  safetyScore Int
+  distance    Float
+  profile     String
+  isFavorite  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  lastUsed    DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+  @@index([isFavorite])
+}
+
+model SOSAlert {
+  id        String   @id @default(uuid())
+  userId    String
+  latitude  Float
+  longitude Float
+  message   String?
+  sentTo    String
+  status    String   @default("sent")
+  createdAt DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model CrimeData {
+  id           String   @id @default(uuid())
+  city         String   @unique
+  state        String?
+  crimeRate    Float
+  womenSafety  Float
+  nightSafety  Float
+  size         String
+  population   Int?
+  lastUpdated  DateTime @default(now())
+  
+  @@index([city])
+  @@index([state])
+}
