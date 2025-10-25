@@ -24,23 +24,24 @@ app.use(helmet())
 const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
-      process.env.FRONTEND_ORIGIN,
-      'http://localhost:5173'
-    ].filter(Boolean);
-    
-    // Allow requests with no origin (mobile apps, Postman, etc)
+      'https://safe-way.vercel.app',
+      'http://localhost:5173',
+      'http://localhost:3000'
+    ];
+
+    // Allow requests with no origin (mobile apps, Postman)
     if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.some(allowed => {
-      if (typeof allowed === 'string') return allowed === origin;
-      return false;
-    }) || /\.vercel\.app$/.test(origin)) {
+
+    if (allowedOrigins.includes(origin) || /\.vercel\.app$/.test(origin)) {
       callback(null, true);
     } else {
+      console.log('❌ CORS blocked origin:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
