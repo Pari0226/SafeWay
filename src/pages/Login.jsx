@@ -13,13 +13,20 @@ const Login = () => {
     e.preventDefault()
     setError('')
     setLoading(true)
-    const result = await login(formData.email, formData.password)
-    if (result.success) {
-      navigate('/')
-    } else {
-      setError(result.error)
+    try {
+      const result = await login(formData.email, formData.password)
+      if (result.success) {
+        // Small delay to ensure auth state is updated
+        await new Promise(resolve => setTimeout(resolve, 100))
+        navigate('/')
+      } else {
+        setError(result.error)
+      }
+    } catch (err) {
+      setError('An unexpected error occurred during login.')
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   const styles = {

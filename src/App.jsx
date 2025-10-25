@@ -16,13 +16,35 @@ import Dashboard from './pages/Dashboard.jsx'
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth()
-  if (loading) {
+  const [localLoading, setLocalLoading] = useState(true)
+
+  useEffect(() => {
+    // Wait for auth to be checked
+    if (!loading) {
+      // Small delay to ensure state is fully updated
+      const timer = setTimeout(() => setLocalLoading(false), 100)
+      return () => clearTimeout(timer)
+    }
+  }, [loading])
+
+  if (loading || localLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl">Loading...</div>
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#f3f4f6'
+      }}>
+        <div style={{
+          fontSize: '1.25rem',
+          fontWeight: 500,
+          color: '#374151'
+        }}>Loading...</div>
       </div>
     )
   }
+
   return isAuthenticated ? children : <Navigate to="/login" />
 }
 
