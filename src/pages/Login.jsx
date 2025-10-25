@@ -15,10 +15,11 @@ const Login = () => {
     setLoading(true)
     try {
       const result = await login(formData.email, formData.password)
-      if (result.success) {
-        // Small delay to ensure auth state is updated
-        await new Promise(resolve => setTimeout(resolve, 100))
-        navigate('/')
+      if (response.ok) {
+        const data = await response.json()
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('user', JSON.stringify(data.user))
+        window.location.href = '/'
       } else {
         setError(result.error)
       }
