@@ -15,16 +15,21 @@ const Login = () => {
     setLoading(true)
     try {
       const result = await login(formData.email, formData.password)
-      if (response.ok) {
-        const data = await response.json()
-        localStorage.setItem('token', data.token)
-        localStorage.setItem('user', JSON.stringify(data.user))
+      if (result && result.data) {
+        // Extract data from the nested structure
+        const { token, user } = result.data
+        
+        // Save to localStorage
+        localStorage.setItem('token', token)
+        localStorage.setItem('user', JSON.stringify(user))
+        
+        // Use window.location for a full page refresh
         window.location.href = '/'
       } else {
-        setError(result.error)
+        setError(result?.message || 'Invalid login response')
       }
     } catch (err) {
-      setError('An unexpected error occurred during login.')
+      setError(err?.message || 'An unexpected error occurred during login.')
     } finally {
       setLoading(false)
     }
