@@ -10,6 +10,11 @@ import { authMiddleware } from '../middleware/auth.js'
 
 const router = express.Router()
 
+// Test endpoint
+router.get('/test', (req, res) => {
+  res.json({ status: 'ok', service: 'routes', message: 'Routes service is working' })
+})
+
 // Public route
 router.get('/search', searchRoutes)
 

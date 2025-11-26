@@ -4,6 +4,11 @@ import { authMiddleware } from '../middleware/auth.js'
 
 const router = express.Router()
 
+// Test endpoint (public)
+router.get('/test', (req, res) => {
+  res.json({ status: 'ok', service: 'sos', message: 'SOS service is working' })
+})
+
 // All SOS routes require authentication
 router.use(authMiddleware)
 

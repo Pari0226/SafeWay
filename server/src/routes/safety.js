@@ -11,6 +11,11 @@ import { cacheMiddleware } from '../middleware/cache.js'
 
 const router = express.Router()
 
+// Test endpoint
+router.get('/test', (req, res) => {
+  res.json({ status: 'ok', service: 'safety', message: 'Safety service is working' })
+})
+
 // Public routes with caching
 router.get('/score', cacheMiddleware(21600), getSafetyScore) // 6 hours
 router.get('/crime-data', cacheMiddleware(86400), getAllCrimeData) // 24 hours
