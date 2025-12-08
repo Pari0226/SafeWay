@@ -1,0 +1,83 @@
+https://safe-way.vercel.app/login
+🚨 SafeWay – Women Safety Route Recommendation System
+
+SafeWay is a full-stack web application designed to help users find safer travel routes using real-time data, a custom safety scoring model, and an intelligent routing engine. The platform provides safe route suggestions, risk evaluation, and emergency support through SMS alerts.
+
+🌟 Features
+
+🔐 Secure Authentication using JWT
+
+🗺️ Route Recommendation Engine using OpenRouteService API
+
+🧮 Custom Safety Score Model (crime, lighting, crowd density, locality score, etc.)
+
+📍 Interactive Map UI (React.js)
+
+🚨 Emergency Alert System using Twilio SMS API
+
+🗄️ PostgreSQL Database with Prisma ORM
+
+⚡ Fast Backend using Node.js + Express.js
+
+💾 Caching for Performance using Redis
+
+📱 Fully Responsive UI
+
+☁️ Deployed on Vercel (frontend) and Render (backend)
+
+🏗️ Tech Stack
+Frontend
+
+React.js
+
+Tailwind CSS
+
+Axios
+
+Map Components
+
+Backend
+
+Node.js
+
+Express.js
+
+PostgreSQL
+
+Prisma ORM
+
+Redis
+
+JWT Authentication
+
+Twilio API
+
+APIs & Integrations
+
+OpenRouteService API (route calculation)
+
+Twilio SMS API (SOS alerts)
+
+📊 Database Structure
+
+Users table
+
+Routes table
+
+Safety metric tables
+
+Cached entries (Redis)
+
+🚀 How It Works
+
+User logs in / registers
+
+Enters source & destination
+
+Backend fetches possible routes
+
+Custom algorithm calculates safety scores
+
+Frontend displays safest route + alternatives
+
+Optional SOS triggers SMS alert to emergency contact
