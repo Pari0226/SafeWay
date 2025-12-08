@@ -14,6 +14,9 @@ dotenv.config()
 
 const app = express()
 
+// ⭐ REQUIRED FOR RENDER — FIXES rate-limit + proxy issue
+app.set('trust proxy', 1)
+
 // Config
 const PORT = process.env.PORT || 5000
 const NODE_ENV = process.env.NODE_ENV || 'development'
@@ -21,6 +24,7 @@ const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:5173'
 
 // Middlewares
 app.use(helmet())
+
 const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
@@ -29,25 +33,24 @@ const corsOptions = {
       'http://localhost:3000'
     ];
 
-    // Allow requests with no origin (mobile apps, Postman)
-    if (!origin) return callback(null, true);
+    if (!origin) return callback(null, true)
 
     if (allowedOrigins.includes(origin) || /\.vercel\.app$/.test(origin)) {
-      callback(null, true);
+      callback(null, true)
     } else {
-      console.log('❌ CORS blocked origin:', origin);
-      callback(new Error('Not allowed by CORS'));
+      console.log('❌ CORS blocked origin:', origin)
+      callback(new Error('Not allowed by CORS'))
     }
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
-};
+}
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions))
 app.use(express.json({ limit: '1mb' }))
 
-// Health check / root route
+// Root health API
 app.get('/', (req, res) => {
   res.json({
     status: 'online',
@@ -59,25 +62,33 @@ app.get('/', (req, res) => {
       safety: '/api/safety',
       sos: '/api/sos'
     }
-  });
-});
+  })
+})
 
-// Basic request logging
+// Basic logging
 app.use((req, _res, next) => {
   logger.info(`${req.method} ${req.originalUrl}`)
   next()
 })
 
-// Rate limit: 100 req / 15min per IP
-const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 })
+// ⭐ Rate limiter (works properly now because trust proxy is enabled)
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100
+})
+
 app.use(limiter)
 
 // Health check
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok', uptime: process.uptime(), env: NODE_ENV })
+  res.status(200).json({
+    status: 'ok',
+    uptime: process.uptime(),
+    env: NODE_ENV
+  })
 })
 
-// Base API
+// API Routes
 app.use('/api', apiRouter)
 
 // 404 handler
@@ -89,9 +100,7 @@ app.use((req, res) => {
 app.use(errorHandler)
 
 app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
   console.log(`SafeWay backend listening on http://localhost:${PORT}`)
-  // eslint-disable-next-line no-console
   console.log(`Environment: ${NODE_ENV}`)
   logger.info(`Server started on port ${PORT}`)
 })
