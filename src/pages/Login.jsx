@@ -163,8 +163,8 @@ const Login = () => {
         </div>
         <div style={styles.stats}>
           <div style={styles.statCard}>
-            <div style={{ fontSize: 22, fontWeight: 800 }}>+120k</div>
-            <div style={{ opacity: 0.9, fontSize: 12 }}>Alerts delivered</div>
+            <div style={{ fontSize: 22, fontWeight: 800 }}>50+ Risk Zones Mapped</div>
+            <div style={{ opacity: 0.9, fontSize: 12 }}>Based on incident density</div>
           </div>
           <div style={styles.statCard}>
             <div style={{ fontSize: 22, fontWeight: 800 }}>98.9%</div>
