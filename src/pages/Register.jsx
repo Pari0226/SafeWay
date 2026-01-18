@@ -182,7 +182,7 @@ const Register = () => {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 onFocus={() => setFocusName(true)}
                 onBlur={() => setFocusName(false)}
-                placeholder="John Doe"
+                placeholder="Enter your full name"
                 style={{ ...styles.input, ...(focusName ? styles.inputFocus : null) }}
               />
             </div>
@@ -196,7 +196,7 @@ const Register = () => {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 onFocus={() => setFocusEmail(true)}
                 onBlur={() => setFocusEmail(false)}
-                placeholder="your@email.com"
+                placeholder="Enter your email"
                 style={{ ...styles.input, ...(focusEmail ? styles.inputFocus : null) }}
               />
             </div>
@@ -211,7 +211,7 @@ const Register = () => {
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 onFocus={() => setFocusPhone(true)}
                 onBlur={() => setFocusPhone(false)}
-                placeholder="9876543210"
+                placeholder="Enter phone number"
                 style={{ ...styles.input, ...(focusPhone ? styles.inputFocus : null) }}
               />
             </div>
