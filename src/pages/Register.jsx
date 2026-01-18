@@ -146,8 +146,8 @@ const Register = () => {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
           <div style={{ ...styles.card, background: 'rgba(255,255,255,0.08)', borderRadius: 12, padding: 12 }}>
-            <div style={{ fontSize: 22, fontWeight: 800 }}>+120k</div>
-            <div style={{ opacity: 0.9, fontSize: 12 }}>Alerts delivered</div>
+            <div style={{ fontSize: 22, fontWeight: 800 }}>Real-time Safety Alerts</div>
+            <div style={{ opacity: 0.9, fontSize: 12 }}>Instant risk notifications on routes</div>
           </div>
           <div style={{ ...styles.card, background: 'rgba(255,255,255,0.08)', borderRadius: 12, padding: 12 }}>
             <div style={{ fontSize: 22, fontWeight: 800 }}>98.9%</div>
