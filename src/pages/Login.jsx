@@ -153,7 +153,7 @@ const Login = () => {
             <div style={styles.brandBox}><span style={styles.brandText}>S</span></div>
             <div>
               <div style={styles.appName}>SafeWay</div>
-              <div style={styles.tagline}>Your Women Safety Companion</div>
+              <div style={styles.tagline}>Women Safety Companion</div>
             </div>
           </div>
           <div style={styles.leftBody}>
