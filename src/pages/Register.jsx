@@ -146,16 +146,16 @@ const Register = () => {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
           <div style={{ ...styles.card, background: 'rgba(255,255,255,0.08)', borderRadius: 12, padding: 12 }}>
-            <div style={{ fontSize: 22, fontWeight: 800 }}>50+ Risk Zones Mapped</div>
-            <div style={{ opacity: 0.9, fontSize: 12 }}>Based on incident density</div>
+            <div style={{ fontSize: 20, fontWeight: 800 }}>50+ Risk Zones Mapped</div>
+            <div style={{ opacity: 0.9, fontSize: 11 }}>Based on incident density</div>
           </div>
           <div style={{ ...styles.card, background: 'rgba(255,255,255,0.08)', borderRadius: 12, padding: 12 }}>
-            <div style={{ fontSize: 22, fontWeight: 800 }}>98.9%</div>
-            <div style={{ opacity: 0.9, fontSize: 12 }}>Uptime</div>
+            <div style={{ fontSize: 20, fontWeight: 800 }}>98.9%</div>
+            <div style={{ opacity: 0.9, fontSize: 11 }}>Uptime</div>
           </div>
           <div style={{ ...styles.card, background: 'rgba(255,255,255,0.08)', borderRadius: 12, padding: 12 }}>
-            <div style={{ fontSize: 22, fontWeight: 800 }}>24/7</div>
-            <div style={{ opacity: 0.9, fontSize: 12 }}>Support</div>
+            <div style={{ fontSize: 20, fontWeight: 800 }}>24/7</div>
+            <div style={{ opacity: 0.9, fontSize: 11 }}>Support</div>
           </div>
         </div>
       </div>
