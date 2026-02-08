@@ -1,139 +1,91 @@
-🚺 SafeWay – Women Safety Route Companion
-=========================================
+# 🚺 SafeWay – Women Safety Route Companion
 
 SafeWay is a smart navigation app designed to help users choose **safer travel routes** instead of just the shortest ones.  
 It blends real-time routing with a multi-factor safety score and an SOS alert system — so you can travel with more confidence, especially at night or in unfamiliar areas.
 
 ---
 
-🎥 Demo
--------
+## 🎥 Demo
 
 Want to see SafeWay in action?
 
-▶ Click here to try the live app: https://safe-way.vercel.app/login
+▶ **Live App:** https://safe-way.vercel.app/login
 
 ---
 
-✨ Features
-----------
+## ✨ Features
 
-🗺 Interactive Navigation  
-• Search source & destination with smart suggestions  
-• View multiple routes on an interactive map  
-• Routes color-coded by safety level  
-• Drop pins directly on the map  
+### 🗺 Interactive Navigation
+- Search source & destination with smart suggestions  
+- View multiple routes on an interactive map  
+- Routes color-coded by safety level  
+- Drop pins directly on the map  
 
-🧠 Safety Scoring Engine  
-• Score from 0–100 for every route  
-• Factors include:  
-  – City crime statistics  
-  – Women & night safety index  
-  – Time of day risk  
-  – Area type (market / highway / isolated)  
-  – Population density  
+### 🧠 Safety Scoring Engine
+- Score from **0–100** for every route  
+- Factors include:  
+  - City crime statistics  
+  - Women & night safety index  
+  - Time of day risk  
+  - Area type (market / highway / isolated)  
+  - Population density  
 
-🚨 SOS Emergency System  
-• Add trusted emergency contacts  
-• One-tap SOS with live location  
-• SMS alerts via Twilio  
-• Alert history saved securely  
+### 🚨 SOS Emergency System
+- Add trusted emergency contacts  
+- One-tap SOS with live location  
+- SMS alerts via Twilio  
+- Alert history saved securely  
 
-👤 User Features  
-• Secure login & registration  
-• Save favorite routes  
-• Report unsafe incidents  
-• View nearby safety reports  
+### 👤 User Features
+- Secure login & registration  
+- Save favorite routes  
+- Report unsafe incidents  
+- View nearby safety reports  
 
-⚡ Performance  
-• Redis caching  
-• Debounced search  
-• Smart API fallbacks  
-• Auto session handling  
-
----
-
-🛠 Tech Stack
-------------
-
-Frontend  
-• React + Vite  
-• React Router  
-• React-Leaflet  
-• Axios  
-• OpenStreetMap Nominatim  
-
-Backend  
-• Node.js + Express  
-• Prisma + PostgreSQL  
-• JWT Authentication  
-• Twilio SMS  
-• Redis Caching  
+### ⚡ Performance
+- Redis caching  
+- Debounced search  
+- Smart API fallbacks  
+- Auto session handling  
 
 ---
 
-📌 How Safety Score Works
-------------------------
+## 🛠 Tech Stack
+
+**Frontend**
+- React + Vite  
+- React Router  
+- React-Leaflet  
+- Axios  
+- OpenStreetMap Nominatim  
+
+**Backend**
+- Node.js + Express  
+- Prisma + PostgreSQL  
+- JWT Authentication  
+- Twilio SMS  
+- Redis Caching  
+
+---
+
+## 📌 How Safety Score Works
 
 Each route is evaluated using:
 
-• Crime data → 40%  
-• Time of day → 25%  
-• Area type → 20%  
-• Density → 15%
+- Crime data → **40%**  
+- Time of day → **25%**  
+- Area type → **20%**  
+- Density → **15%**
 
-Levels:  
+**Levels:**  
 🟢 Safe – score ≥ 80  
 🟡 Moderate – 50–79  
 🔴 Risky – < 50  
 
 ---
 
-🚀 Getting Started
------------------
+## 🚀 Getting Started
 
-1) Clone the repo
+### 1) Clone the repo
+```bash
 git clone https://github.com/yourusername/safeway.git
-
-2) Frontend
-cd client  
-npm install  
-npm run dev  
-
-3) Backend
-cd server  
-npm install  
-
-Create .env
-
-DATABASE_URL=  
-JWT_SECRET=  
-OPENROUTE_API_KEY=  
-TWILIO_SID=  
-TWILIO_AUTH_TOKEN=  
-TWILIO_FROM=  
-REDIS_URL=  
-
-Run:
-
-npx prisma migrate dev  
-npm run dev  
-
----
-
-🌱 Future Plans
---------------
-
-• ML based crime prediction  
-• Real-time crowd density  
-• Voice SOS  
-• Backend unified safety engine  
-• Test suite  
-
----
-
-💙 Built By
-----------
-
-Pari Singh  
-Making everyday travel a little safer ✨
